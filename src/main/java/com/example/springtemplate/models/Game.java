@@ -1,28 +1,51 @@
 package com.example.springtemplate.models;
 
+import java.sql.Date;
+
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "game")
 public class Game {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idgame;
     private String location;
-    // TODO: DATE??
-    private String date;
+    private Date startTime;
 
-    @OneToOne(mappedBy = "team")
+    @ManyToOne
+    @JoinColumn(name = "home_team")
+    @JsonIgnore
     private Team homeTeam;
 
-    @OneToOne(mappedBy = "team")
+    @ManyToOne
+    @JoinColumn(name = "away_team")
+    @JsonIgnore
     private Team awayTeam;
 
     public Integer getId() {
-        return id;
+        return idgame;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setId(Integer idgame) {
+        this.idgame = idgame;
     }
 }
