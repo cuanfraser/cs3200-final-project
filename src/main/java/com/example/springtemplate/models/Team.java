@@ -1,6 +1,9 @@
 package com.example.springtemplate.models;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 @Entity
@@ -8,21 +11,32 @@ import java.util.List;
 public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idteam;
     private String name;
     private String city;
 
-    @OneToMany(mappedBy = "player")
+    @OneToMany(mappedBy = "team")
+    @JsonIgnore
     private List<Player> players;
 
-    @OneToOne(mappedBy = "coach")
+    @OneToOne(mappedBy = "team")
+    @JsonIgnore
     private Coach coach;
 
     @Enumerated(EnumType.STRING)
+    @JsonIgnore
     private Conference conference;
 
+    @OneToMany(mappedBy = "homeTeam")
+    @JsonIgnore
+    private List<Game> homeGames;
+
+    @OneToMany(mappedBy = "awayTeam")
+    @JsonIgnore
+    private List<Game> awayGames;
+
     public Integer getId() {
-        return id;
+        return idteam;
     }
 
     public Conference getConference() {
@@ -49,8 +63,8 @@ public class Team {
         this.name = name;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer idteam) {
+        this.idteam = idteam;
     }
 
     public List<Player> getMovies() {
