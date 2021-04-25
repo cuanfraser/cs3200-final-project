@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -42,6 +43,17 @@ public class Team {
     public Conference getConference() {
         return conference;
     }
+
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    public List<Game> getGames() {
+        List<Game> games = new ArrayList<Game>(homeGames);
+        games.addAll(awayGames);
+        return games;
+    }
+
 
     public void setConference(Conference conference) {
         this.conference = conference;

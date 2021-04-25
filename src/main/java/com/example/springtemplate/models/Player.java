@@ -82,4 +82,12 @@ public class Player {
     public void setId(Integer idplayer) {
         this.idplayer = idplayer;
     }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
 }

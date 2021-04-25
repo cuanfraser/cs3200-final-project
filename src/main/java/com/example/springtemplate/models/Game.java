@@ -29,6 +29,14 @@ public class Game {
         return idgame;
     }
 
+    public Team getHomeTeam() {
+        return homeTeam;
+    }
+
+    public Team getAwayTeam() {
+        return awayTeam;
+    }
+
     public Date getStartTime() {
         return startTime;
     }
@@ -48,4 +56,13 @@ public class Game {
     public void setId(Integer idgame) {
         this.idgame = idgame;
     }
+
+    public void setHome(Team home) {
+        this.homeTeam = home;
+    }
+
+    public void setAway(Team away) {
+        this.awayTeam = away;
+    }
+
 }
