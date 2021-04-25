@@ -11,13 +11,34 @@ public class Team {
     private Integer id;
     private String name;
     private String city;
-    private String conference;
 
     @OneToMany(mappedBy = "player")
     private List<Player> players;
 
+    @OneToOne(mappedBy = "coach")
+    private Coach coach;
+
+    @Enumerated(EnumType.STRING)
+    private Conference conference;
+
     public Integer getId() {
         return id;
+    }
+
+    public Conference getConference() {
+        return conference;
+    }
+
+    public void setConference(Conference conference) {
+        this.conference = conference;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getName() {
@@ -39,4 +60,14 @@ public class Team {
     public void setMovies(List<Player> players) {
         this.players = players;
     }
+
+    public Coach getCoach() {
+        return coach;
+    }
+
+    public void setCoach(Coach coach) {
+        this.coach = coach;
+    }
+
+
 }
