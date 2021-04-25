@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch DemoApplication",
+            "request": "launch",
+            "mainClass": "com.example.springtemplate.DemoApplication",
+            "projectName": "spring-template"
+        },
+        {
+            "type": "java",
+            "name": "Launch UserJdbcDao",
+            "request": "launch",
+            "mainClass": "com.example.springtemplate.social.daos.UserJdbcDao",
+            "projectName": "spring-template"
+        }
+    ]
+}
