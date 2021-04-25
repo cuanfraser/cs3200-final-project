@@ -1,8 +1,8 @@
 const {useState, useEffect } = React;
 const {Link} = window.ReactRouterDOM;
 
-const InlinePlayerEditor = ({player, deletePlayer, updatePlayer}) => {
-  const [playerCopy, setPlayerCopy] = useState(player)
+const InlineCoachEditor = ({coach, deleteCoach, updateCoach}) => {
+  const [coachCopy, setCoachCopy] = useState(coach)
   const [editing, setEditing] = useState(false)
   return(
       <div>
@@ -12,23 +12,23 @@ const InlinePlayerEditor = ({player, deletePlayer, updatePlayer}) => {
             <div className="col">
               <input
                   className="form-control"
-                  value={playerCopy.firstName}
-                  onChange={(e)=>setPlayerCopy(playerCopy => ({...playerCopy, firstName: e.target.value}))}/>
+                  value={coachCopy.firstName}
+                  onChange={(e)=>setCoachCopy(coachCopy => ({...coachCopy, firstName: e.target.value}))}/>
             </div>
             <div className="col">
               <input
                   className="form-control"
                   value={userCopy.lastName}
-                  onChange={(e)=>setplayerCopy(playerCopy => ({...playerCopy, lastName: e.target.value}))}/>
+                  onChange={(e)=>setcoachCopy(coachCopy => ({...coachCopy, lastName: e.target.value}))}/>
             </div>
             <div className="col">
               <input
                   className="form-control"
-                  value={playerCopy.username}
-                  onChange={(e)=>setplayerCopy(playerCopy => ({...playerCopy, username: e.target.value}))}/>
+                  value={coachCopy.username}
+                  onChange={(e)=>setcoachCopy(coachCopy => ({...coachCopy, username: e.target.value}))}/>
             </div>
             <div className="col-1">
-              <Link to={`/users/${playerCopy.id}/blogs`}>
+              <Link to={`/users/${coachCopy.id}/blogs`}>
 
                 ///need to update this to teams?
                 Blogs
@@ -38,12 +38,12 @@ const InlinePlayerEditor = ({player, deletePlayer, updatePlayer}) => {
               <i className="fas fa-2x fa-check float-right margin-left-10px"
                  onClick={() => {
                    setEditing(false)
-                   updatePlayer(playerCopy.id, playerCopy)
+                   updateCoach(coachCopy.id, coachCopy)
                  }}></i>
               <i className="fas fa-2x fa-undo float-right margin-left-10px"
                  onClick={() => setEditing(false)}></i>
               <i className="fas fa-2x fa-trash float-right margin-left-10px"
-                 onClick={() => deletePlayer(player.id)}></i>
+                 onClick={() => deleteCoach(coach.id)}></i>
             </div>
           </div>
         }
@@ -51,37 +51,22 @@ const InlinePlayerEditor = ({player, deletePlayer, updatePlayer}) => {
           !editing &&
           <div className="row">
             <div className="col">
-              <Link to={`/players/${playerCopy.id}`}>
-                {playerCopy.firstName}
+              <Link to={`/coaches/${coachCopy.id}`}>
+                {coachCopy.firstName}
               </Link>
             </div>
             <div className="col">
-              <Link to={`/players/${playerCopy.id}`}>
-                {playerCopy.lastName}
+              <Link to={`/coaches/${coachCopy.id}`}>
+                {coachCopy.lastName}
               </Link>
             </div>
             <div className="col">
-              <Link to={`/players/${playerCopy.id}`}>
-                {playerCopy.username}
+              <Link to={`/coaches/${coachCopy.id}`}>
+                {coachCopy.username}
               </Link>
             </div>
-            {/*<div className="col">*/}
-            {/*  <Link to={`/players/${playerCopy.id}`}>*/}
-            {/*    {playerCopy.password}*/}
-            {/*  </Link>*/}
-            {/*</div>*/}
-            {/*<div className="col">*/}
-            {/*  <Link to={`/players/${playerCopy.id}`}>*/}
-            {/*    {playerCopy.email}*/}
-            {/*  </Link>*/}
-            {/*</div>*/}
-            {/*<div className="col">*/}
-            {/*  <Link to={`/players/${playerCopy.id}`}>*/}
-            {/*    {playerCopy.dob}*/}
-            {/*  </Link>*/}
-            {/*</div>*/}
             <div className="col-1">
-              <Link to={`/players/${playerCopy.id}/blogs`}>
+              <Link to={`/coaches/${coachCopy.id}/blogs`}>
                 Blogs //change to what
               </Link>
             </div>
@@ -95,4 +80,4 @@ const InlinePlayerEditor = ({player, deletePlayer, updatePlayer}) => {
   )
 }
 
-export default InlinePlayerEditor;
+export default InlineCoachEditor;
