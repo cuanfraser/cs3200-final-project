@@ -17,12 +17,10 @@ public class Game {
 
     @ManyToOne
     @JoinColumn(name = "home_team")
-    @JsonIgnore
     private Team homeTeam;
 
     @ManyToOne
     @JoinColumn(name = "away_team")
-    @JsonIgnore
     private Team awayTeam;
 
     public Integer getId() {

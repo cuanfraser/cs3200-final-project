@@ -21,7 +21,6 @@ public class Player {
 
     @ManyToOne
     @JoinColumn(name = "idteam")
-    @JsonIgnore
     private Team team;
 
     @Enumerated(EnumType.STRING)
