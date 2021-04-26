@@ -12,27 +12,26 @@ const InlineGameEditor = ({game, deleteGame, updateGame}) => {
             <div className="col">
               <input
                   className="form-control"
-                  value={gameCopy.firstName}
+                  value={gameCopy.homeTeam}
                   onChange={(e)=>setGameCopy(gameCopy => ({...gameCopy, firstName: e.target.value}))}/>
             </div>
             <div className="col">
               <input
                   className="form-control"
-                  value={gameCopy.lastName}
+                  value={gameCopy.awayTeam}
                   onChange={(e)=>setGameCopy(gameCopy => ({...gameCopy, lastName: e.target.value}))}/>
             </div>
             <div className="col">
               <input
                   className="form-control"
-                  value={gameCopy.username}
+                  value={gameCopy.location}
                   onChange={(e)=>setGameCopy(gameCopy => ({...gameCopy, username: e.target.value}))}/>
             </div>
-            <div className="col-1">
-              <Link to={`/users/${gameCopy.id}/blogs`}>
-
-                ///need to update this to teams?
-                Blogs
-              </Link>
+            <div className="col">
+              <input
+                  className="form-control"
+                  value={gameCopy.startTime}
+                  onChange={(e)=>setGameCopy(gameCopy => ({...gameCopy, username: e.target.value}))}/>
             </div>
             <div className="col-2">
               <i className="fas fa-2x fa-check float-right margin-left-10px"
