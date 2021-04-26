@@ -51,22 +51,22 @@ const InlineGameEditor = ({game, deleteGame, updateGame}) => {
           <div className="row">
             <div className="col">
               <Link to={`/games/${gameCopy.id}`}>
-                {gameCopy.firstName}
+                {gameCopy.homeTeam}
               </Link>
             </div>
             <div className="col">
               <Link to={`/games/${gameCopy.id}`}>
-                {gameCopy.lastName}
+                {gameCopy.awayTeam}
               </Link>
             </div>
             <div className="col">
               <Link to={`/games/${gameCopy.id}`}>
-                {gameCopy.username}
+                {gameCopy.location}
               </Link>
             </div>
-            <div className="col-1">
-              <Link to={`/games/${gameCopy.id}/blogs`}>
-                Blogs //change to what
+            <div className="col">
+              <Link to={`/games/${gameCopy.id}`}>
+                {gameCopy.startTime}
               </Link>
             </div>
             <div className="col-2">
