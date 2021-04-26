@@ -32,4 +32,4 @@ const GameList = () => {
   )
 }
 
-export default GameList();
+export default GameList;
