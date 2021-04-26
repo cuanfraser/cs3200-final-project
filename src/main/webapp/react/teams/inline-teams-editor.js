@@ -18,7 +18,7 @@ const InlineTeamEditor = ({team, deleteTeam, updateTeam}) => {
             <div className="col">
               <input
                   className="form-control"
-                  value={userCopy.city}
+                  value={teamCopy.city}
                   onChange={(e)=>setTeamCopy(teamCopy => ({...teamCopy, city: e.target.value}))}/>
             </div>
             <div className="col">
