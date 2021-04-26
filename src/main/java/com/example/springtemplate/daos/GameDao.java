@@ -37,7 +37,6 @@ public class GameDao {
             @PathVariable("hid") Integer hid,
             @PathVariable("aid") Integer aid,
             @RequestBody Game game) {
-        game = repository.save(game);
         Team home = teamRepository.findById(hid).get();
         Team away = teamRepository.findById(aid).get();
         game.setHome(home);

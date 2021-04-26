@@ -87,12 +87,15 @@ const PlayerFormEditor = () => {
                         ({ ...player, idposition: e.target.value }))}
                 value={player.idposition}>
 
-                <option name="ONE">ONE</option>
-                <option name="TWO">TWO</option>
-                <option name="THREE">THREE</option>
-                <option name="FOUR">FOUR</option>
-                <option name="FIVE">FIVE</option>
+                <option value="ONE">ONE</option>
+                <option value="TWO">TWO</option>
+                <option value="THREE">THREE</option>
+                <option value="FOUR">FOUR</option>
+                <option value="FIVE">FIVE</option>
             </select>
+
+
+
             <button className="btn btn-warning"
                 onClick={() => {
                     history.goBack()
