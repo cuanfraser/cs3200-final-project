@@ -28,7 +28,7 @@ const InlinePlayerEditor = ({player, deletePlayer, updatePlayer}) => {
                   onChange={(e)=>setplayerCopy(playerCopy => ({...playerCopy, username: e.target.value}))}/>
             </div>
             <div className="col-1">
-              <Link to={`/users/${playerCopy.id}/blogs`}>
+              <Link to={`/players/${playerCopy.id}/teams`}>
 
                 ///need to update this to teams?
                 Blogs

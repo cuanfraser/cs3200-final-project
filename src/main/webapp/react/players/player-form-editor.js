@@ -62,6 +62,34 @@ const PlayerFormEditor = () => {
                     ({...player, password: e.target.value}))}
 
             value={player.password}/><br/>
+        <label>Email</label>
+        <input
+            onChange={(e) =>
+                setPlayer(player => //update local player objects playername as player types input
+                    ({...player, email: e.target.value}))}
+
+            value={player.email}/><br/>
+        <label>Date of Birth</label>
+        <input
+            onChange={(e) =>
+                setPlayer(player => //update local player objects playername as player types input
+                    ({...player, dateOfBirth: e.target.value}))}
+
+            value={player.dateOfBirth}/><br/>
+        <label>Team</label>
+        <input
+            onChange={(e) =>
+                setPlayer(player => //update local player objects playername as player types input
+                    ({...player, team: e.target.value}))}
+
+            value={player.team}/><br/>
+        <label>Position</label>
+        <input
+            onChange={(e) =>
+                setPlayer(player => //update local player objects playername as player types input
+                    ({...player, position: e.target.value}))}
+
+            value={player.position}/><br/>
         <button className="btn btn-warning"
                 onClick={() => {
                   history.goBack()}}>
