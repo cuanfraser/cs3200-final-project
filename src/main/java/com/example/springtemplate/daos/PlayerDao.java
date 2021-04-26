@@ -69,7 +69,7 @@ public class PlayerDao {
         player.setPassword(newPlayer.getPassword());
         player.setEmail(newPlayer.getEmail());
         player.setDob(newPlayer.getDob());
-        // TODO: UPDATE TEAM
+        player.setIdposition(newPlayer.getIdposition());
         return repository.save(player);
     }
 

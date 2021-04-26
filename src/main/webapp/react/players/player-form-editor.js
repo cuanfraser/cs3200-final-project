@@ -76,17 +76,23 @@ const PlayerFormEditor = () => {
 
                 value={player.dob} />
             <label>Team: </label>
-            {Object.keys(player).length > 0 ? <Link to={`/teams/${player.team.id}`} className="btn btn-primary">{player.team.name}</Link> : 
-            <input className="form-control" value="No Team" disabled/>}
+            {Object.keys(player).length > 0 ? <Link to={`/teams/${player.team.id}`} className="btn btn-primary">{player.team.name}</Link> :
+                <input className="form-control" value="No Team" disabled />}
             <br />
 
             <label>Position</label>
-            <input className="form-control"
+            <select className="form-control"
                 onChange={(e) =>
                     setPlayer(player => //update local player objects playername as player types input
-                        ({ ...player, position: e.target.value }))}
+                        ({ ...player, idposition: e.target.value }))}
+                value={player.idposition}>
 
-                value={player.position} />
+                <option name="ONE">ONE</option>
+                <option name="TWO">TWO</option>
+                <option name="THREE">THREE</option>
+                <option name="FOUR">FOUR</option>
+                <option name="FIVE">FIVE</option>
+            </select>
             <button className="btn btn-warning"
                 onClick={() => {
                     history.goBack()

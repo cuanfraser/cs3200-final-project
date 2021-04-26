@@ -30,6 +30,14 @@ public class Player {
         return idplayer;
     }
 
+    public Position getIdposition() {
+        return idposition;
+    }
+
+    public void setIdposition(Position idposition) {
+        this.idposition = idposition;
+    }
+
     public Date getDob() {
         return dob;
     }
