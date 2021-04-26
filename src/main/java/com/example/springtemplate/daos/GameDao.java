@@ -22,6 +22,7 @@ import java.util.List;
 public class GameDao {
     @Autowired
     GameRepository repository;
+    @Autowired
     TeamRepository teamRepository;
 
 

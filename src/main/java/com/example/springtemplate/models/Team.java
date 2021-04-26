@@ -25,7 +25,6 @@ public class Team {
     private Coach coach;
 
     @Enumerated(EnumType.STRING)
-    @JsonIgnore
     private Conference conference;
 
     @OneToMany(mappedBy = "homeTeam")
@@ -48,6 +47,7 @@ public class Team {
         return players;
     }
 
+    @JsonIgnore
     public List<Game> getGames() {
         List<Game> games = new ArrayList<Game>(homeGames);
         games.addAll(awayGames);
@@ -77,14 +77,6 @@ public class Team {
 
     public void setId(Integer idteam) {
         this.idteam = idteam;
-    }
-
-    public List<Player> getMovies() {
-        return players;
-    }
-
-    public void setMovies(List<Player> players) {
-        this.players = players;
     }
 
     public Coach getCoach() {

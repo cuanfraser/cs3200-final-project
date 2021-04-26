@@ -22,6 +22,7 @@ import java.util.List;
 public class PlayerDao {
     @Autowired
     PlayerRepository repository;
+    @Autowired
     TeamRepository teamRepository;
 
 
