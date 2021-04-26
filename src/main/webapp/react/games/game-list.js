@@ -18,14 +18,15 @@ const GameList = () => {
 
             <ul className="list-group">
                 {
-                    games.map(game => <li className="list-group-item" key={game.id}>
+                    games.map(game =>
                         <Link to={`/games/${game.id}`}>
-                            {game.homeTeam},
-                            {game.awayTeam},
-                            {game.location},
-                            {game.startTime},
-                        </Link>
-                    </li>)
+                            <li className="list-group-item" key={game.id}>
+                                Home: {game.homeTeam.name} |
+                                Away: {game.awayTeam.name} |
+                                Location: {game.location} |
+                                Date: {game.startTime}
+                            </li>
+                        </Link>)
                 }
             </ul>
         </div>

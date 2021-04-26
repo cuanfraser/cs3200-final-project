@@ -37,7 +37,7 @@ const TeamFormEditor = () => {
                 setTeam(team => //update local team objects first name
                     ({...team, name: e.target.value}))}
 
-            value={team.id}/><br/>
+            value={team.id}/>
         <label>Name</label>
         <input className="form-control" value={team.name}/>
         <label>City</label>

@@ -32,14 +32,13 @@ const PlayerFormEditor = () => {
         <div>
             <h2>Player Editor</h2>
             <label>Id</label>
-            <input className="form-control" disabled
+            <input className="form-control" disabled value={player.id} />
+            <label>First Name</label>
+            <input className="form-control"
                 onChange={(e) =>
                     setPlayer(player => //update local player objects first name
                         ({ ...player, firstName: e.target.value }))}
-
-                value={player.id} />
-            <label>First Name</label>
-            <input className="form-control" value={player.firstName} />
+                value={player.firstName} />
             <label>Last Name</label>
             <input className="form-control"
                 onChange={(e) =>
@@ -69,21 +68,18 @@ const PlayerFormEditor = () => {
 
                 value={player.email} />
             <label>Date of Birth</label>
+            {console.log(player)}
             <input className="form-control"
                 onChange={(e) =>
                     setPlayer(player => //update local player objects playername as player types input
                         ({ ...player, dateOfBirth: e.target.value }))}
 
-                value={player.dateOfBirth} />
-            <label>Team</label>
-            {
-                player !== null ?
-                    (<Link to="/teams" className="btn btn-primary">{player.name}</Link>):
-                    null
+                value={player.dob} />
+            <label>Team: </label>
+            {Object.keys(player).length > 0 ? <Link to={`/teams/${player.team.id}`} className="btn btn-primary">{player.team.name}</Link> : 
+            <input className="form-control" value="No Team" disabled/>}
+            <br />
 
-            }
-            <br/>
-            
             <label>Position</label>
             <input className="form-control"
                 onChange={(e) =>
