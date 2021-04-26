@@ -40,14 +40,14 @@ const GameFormEditor = () => {
             value={game.id}/><br/>
         <input className="form-control"/>
         <label>Home Team</label>
-        <input value={game.getHomeTeam()}/><br/>
+        <input value={game.homeTeam()}/><br/>
         <label>Away Team</label>
         <input
             onChange={(e) =>
                 setGame(game => //update local game objects last name as game types
                     ({...game, awayTeam: e.target.value}))}
 
-            value={game.getAwayTeam()}/><br/>
+            value={game.awayTeam()}/><br/>
         <label>Location</label>
         <input
             onChange={(e) =>
