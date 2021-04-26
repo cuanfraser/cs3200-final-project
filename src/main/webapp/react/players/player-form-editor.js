@@ -1,117 +1,119 @@
 import playerService from "./player-service" //import player-service so we can fetch single player
-const {useState, useEffect} = React; //import React's hooks
-const {useParams, useHistory} = window.ReactRouterDOM; //import playerParams to parse params from URL
+const { useState, useEffect } = React; //import React's hooks
+const { useParams, useHistory, Link } = window.ReactRouterDOM; //import playerParams to parse params from URL
 const PlayerFormEditor = () => {
-  const {id} = useParams() //parse id from url
-  const [player, setPlayer] = useState({})
-  useEffect(() => { //on load
-    if(id !== "new") { //oinly load player by ID if ID is not new
-      findPlayerById(id) //find player by id
-    }
-  }, []);
+    const { id } = useParams() //parse id from url
+    const [player, setPlayer] = useState({})
+    useEffect(() => { //on load
+        if (id !== "new") { //oinly load player by ID if ID is not new
+            findPlayerById(id) //find player by id
+        }
+    }, []);
 
-  const findPlayerById = (id) => //fetch single player using id
-      playerService.findPlayerById(id) //use player service so we can fetch a single player
-      .then(player => setPlayer(player)) //store player from server to local player state
+    const findPlayerById = (id) => //fetch single player using id
+        playerService.findPlayerById(id) //use player service so we can fetch a single player
+            .then(player => setPlayer(player)) //store player from server to local player state
 
-  const deletePlayer = (id) => //delete player event handler accepts player ID
-      playerService.deletePlayer(id)
-      .then(() => history.goBack())
+    const deletePlayer = (id) => //delete player event handler accepts player ID
+        playerService.deletePlayer(id)
+            .then(() => history.goBack())
 
-  const createPlayer = (player) => //create button clock to send player to server
-      playerService.createPlayer(player)
-      .then(() => history.goBack())
+    const createPlayer = (player) => //create button clock to send player to server
+        playerService.createPlayer(player)
+            .then(() => history.goBack())
 
-  const updatePlayer = (id, newPlayer) =>
-      playerService.updatePlayer(id, newPlayer) //update player ID with new player data, send to server
-      .then(() => history.goBack())
+    const updatePlayer = (id, newPlayer) =>
+        playerService.updatePlayer(id, newPlayer) //update player ID with new player data, send to server
+            .then(() => history.goBack())
 
-  const history = useHistory()
+    const history = useHistory()
 
-  return (
-      <div>
-        <h2>Player Editor</h2>
-        <label>Id</label>
-        <input
-            onChange={(e) =>
-                setPlayer(player => //update local player objects first name
-                    ({...player, firstName: e.target.value}))}
+    return (
+        <div>
+            <h2>Player Editor</h2>
+            <label>Id</label>
+            <input className="form-control" disabled
+                onChange={(e) =>
+                    setPlayer(player => //update local player objects first name
+                        ({ ...player, firstName: e.target.value }))}
 
-            value={player.id}/><br/>
-        <input className="form-control"/>
-        <label>First Name</label>
-        <input value={player.firstName}/><br/>
-        <label>Last Name</label>
-        <input
-            onChange={(e) =>
-                setPlayer(player => //update local player objects last name as player types
-                    ({...player, lastName: e.target.value}))}
+                value={player.id} />
+            <label>First Name</label>
+            <input className="form-control" value={player.firstName} />
+            <label>Last Name</label>
+            <input className="form-control"
+                onChange={(e) =>
+                    setPlayer(player => //update local player objects last name as player types
+                        ({ ...player, lastName: e.target.value }))}
 
-            value={player.lastName}/><br/>
-        <label>Username</label>
-        <input
-            onChange={(e) =>
-                setPlayer(player => //update local player objects playername as player types input
-                    ({...player, username: e.target.value}))}
+                value={player.lastName} />
+            <label>Username</label>
+            <input className="form-control"
+                onChange={(e) =>
+                    setPlayer(player => //update local player objects playername as player types input
+                        ({ ...player, username: e.target.value }))}
 
-            value={player.username}/><br/>
-        <label>Password</label>
-        <input
-            onChange={(e) =>
-                setPlayer(player =>
-                    ({...player, password: e.target.value}))}
+                value={player.username} />
+            <label>Password</label>
+            <input className="form-control"
+                onChange={(e) =>
+                    setPlayer(player =>
+                        ({ ...player, password: e.target.value }))}
 
-            value={player.password}/><br/>
-        <label>Email</label>
-        <input
-            onChange={(e) =>
-                setPlayer(player => //update local player objects playername as player types input
-                    ({...player, email: e.target.value}))}
+                value={player.password} />
+            <label>Email</label>
+            <input className="form-control"
+                onChange={(e) =>
+                    setPlayer(player => //update local player objects playername as player types input
+                        ({ ...player, email: e.target.value }))}
 
-            value={player.email}/><br/>
-        <label>Date of Birth</label>
-        <input
-            onChange={(e) =>
-                setPlayer(player => //update local player objects playername as player types input
-                    ({...player, dateOfBirth: e.target.value}))}
+                value={player.email} />
+            <label>Date of Birth</label>
+            <input className="form-control"
+                onChange={(e) =>
+                    setPlayer(player => //update local player objects playername as player types input
+                        ({ ...player, dateOfBirth: e.target.value }))}
 
-            value={player.dateOfBirth}/><br/>
-        <label>Team</label>
-        <input
-            onChange={(e) =>
-                setPlayer(player => //update local player objects playername as player types input
-                    ({...player, team: e.target.value}))}
+                value={player.dateOfBirth} />
+            <label>Team</label>
+            {
+                player !== null ?
+                    (<Link to="/teams" className="btn btn-primary">{player.name}</Link>):
+                    null
 
-            value={player.team}/><br/>
-        <label>Position</label>
-        <input
-            onChange={(e) =>
-                setPlayer(player => //update local player objects playername as player types input
-                    ({...player, position: e.target.value}))}
+            }
+            <br/>
+            
+            <label>Position</label>
+            <input className="form-control"
+                onChange={(e) =>
+                    setPlayer(player => //update local player objects playername as player types input
+                        ({ ...player, position: e.target.value }))}
 
-            value={player.position}/><br/>
-        <button className="btn btn-warning"
+                value={player.position} />
+            <button className="btn btn-warning"
                 onClick={() => {
-                  history.goBack()}}>
-          Cancel
+                    history.goBack()
+                }}>
+                Cancel
         </button>
 
-        <button className="btn btn-danger"
+            <button className="btn btn-danger"
                 onClick={() => deletePlayer(player.id)}>
-          Delete
+                Delete
         </button>
 
-        <button className="btn btn-success"
+            <button className="btn btn-success"
                 onClick={() => createPlayer(player)}>
-          Create
+                Create
         </button>
 
-        <button className="btn btn-primary"
+            <button className="btn btn-primary"
                 onClick={() => updatePlayer(player.id, player)}>
-          Save
+                Save
         </button>
-      </div>
-  )
+        </div>
+    )
 }
 
 export default PlayerFormEditor
