@@ -17,15 +17,16 @@ const TeamList = () => {
                 Add Team
         </button>
 
-            <ul>
+            <ul className="list-group">
                 {
-                    teams.map(team => <li key={team.id}>
-                        <Link to={`/teams/${team.id}`}>
-                            {team.name},
-                {team.city},
-                {team.conference},
-              </Link>
-                    </li>)
+                    teams.map(team =>
+                        <li className="list-group-item" key={team.id}>
+                            <Link to={`/teams/${team.id}`}>
+                                {team.name},
+                                {team.city},
+                                {team.conference},
+                            </Link>
+                        </li>)
                 }
             </ul>
         </div>
