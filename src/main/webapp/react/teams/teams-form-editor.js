@@ -38,7 +38,6 @@ const TeamFormEditor = () => {
                     ({...team, name: e.target.value}))}
 
             value={team.id}/><br/>
-        <input className="form-control"/>
         <label>Name</label>
         <input value={team.name}/><br/>
         <label>City</label>

@@ -32,31 +32,30 @@ const GameFormEditor = () => {
       <div>
         <h2>Game Editor</h2>
         <label>Id</label>
-        <input
+        <input className="form-control" disabled
             onChange={(e) =>
                 setGame(game => //update local game object
                     ({...game, homeTeam: e.target.value}))}
 
             value={game.id}/><br/>
-        <input className="form-control"/>
         <label>Home Team</label>
-        <input value={game.homeTeam()}/><br/>
+        <input className="form-control" value={game.homeTeam()}/><br/>
         <label>Away Team</label>
-        <input
+        <input className="form-control"
             onChange={(e) =>
                 setGame(game => //update local game objects last name as game types
                     ({...game, awayTeam: e.target.value}))}
 
             value={game.awayTeam()}/><br/>
         <label>Location</label>
-        <input
+        <input className="form-control"
             onChange={(e) =>
                 setGame(game => //update local game objects gamename as game types input
                     ({...game, location: e.target.value}))}
 
             value={game.location}/><br/>
         <label>Start Time</label>
-        <input
+        <input className="form-control"
             onChange={(e) =>
                 setGame(game => //update local game objects gamename as game types input
                     ({...game, startTime: e.target.value}))}
