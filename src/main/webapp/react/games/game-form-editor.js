@@ -35,7 +35,6 @@ const GameFormEditor = () => {
             <label>Home Team</label>
             {Object.keys(game).length > 0 ? <input className="form-control" disabled value={game.homeTeam.name} /> : 
             <input className="form-control" disabled/>}
-            
             <label>Away Team</label>
             {Object.keys(game).length > 0 ? <input className="form-control" disabled value={game.awayTeam.name} /> : 
             <input className="form-control" disabled/>}
