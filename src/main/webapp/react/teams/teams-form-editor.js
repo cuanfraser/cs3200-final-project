@@ -39,21 +39,21 @@ const TeamFormEditor = () => {
 
             value={team.id}/><br/>
         <label>Name</label>
-        <input className="form-control" value={team.name}/><br/>
+        <input className="form-control" value={team.name}/>
         <label>City</label>
         <input className="form-control"
             onChange={(e) =>
                 setTeam(team => //update local team objects last name as team types
                     ({...team, city: e.target.value}))}
 
-            value={team.city}/><br/>
+            value={team.city}/>
         <label>Conference</label>
         <input className="form-control"
             onChange={(e) =>
                 setTeam(team => //update local team objects teamname as team types input
                     ({...team, conference: e.target.value}))}
 
-            value={team.conference}/><br/>
+            value={team.conference}/>
         <button className="btn btn-warning"
                 onClick={() => {
                   history.goBack()}}>

@@ -37,30 +37,30 @@ const GameFormEditor = () => {
                 setGame(game => //update local game object
                     ({...game, homeTeam: e.target.value}))}
 
-            value={game.id}/><br/>
+            value={game.id}/>
         <label>Home Team</label>
-        <input className="form-control" value={game.homeTeam()}/><br/>
+        <input className="form-control" value={game.homeTeam()}/>
         <label>Away Team</label>
         <input className="form-control"
             onChange={(e) =>
                 setGame(game => //update local game objects last name as game types
                     ({...game, awayTeam: e.target.value}))}
 
-            value={game.awayTeam()}/><br/>
+            value={game.awayTeam()}/>
         <label>Location</label>
         <input className="form-control"
             onChange={(e) =>
                 setGame(game => //update local game objects gamename as game types input
                     ({...game, location: e.target.value}))}
 
-            value={game.location}/><br/>
+            value={game.location}/>
         <label>Start Time</label>
         <input className="form-control"
             onChange={(e) =>
                 setGame(game => //update local game objects gamename as game types input
                     ({...game, startTime: e.target.value}))}
 
-            value={game.startTime}/><br/>
+            value={game.startTime}/>
         <button className="btn btn-warning"
                 onClick={() => {
                   history.goBack()}}>
