@@ -32,23 +32,23 @@ const TeamFormEditor = () => {
       <div>
         <h2>Team Editor</h2>
         <label>Id</label>
-        <input
+        <input className="form-control" disabled
             onChange={(e) =>
                 setTeam(team => //update local team objects first name
                     ({...team, name: e.target.value}))}
 
             value={team.id}/><br/>
         <label>Name</label>
-        <input value={team.name}/><br/>
+        <input className="form-control" value={team.name}/><br/>
         <label>City</label>
-        <input
+        <input className="form-control"
             onChange={(e) =>
                 setTeam(team => //update local team objects last name as team types
                     ({...team, city: e.target.value}))}
 
             value={team.city}/><br/>
         <label>Conference</label>
-        <input
+        <input className="form-control"
             onChange={(e) =>
                 setTeam(team => //update local team objects teamname as team types input
                     ({...team, conference: e.target.value}))}
