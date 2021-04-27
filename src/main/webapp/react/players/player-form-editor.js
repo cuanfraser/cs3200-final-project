@@ -1,5 +1,5 @@
 import playerService from "./player-service" //import player-service so we can fetch single player
-import teamService from "../teams/teams-service"
+import teamService from "./teams-service"
 
 const { useState, useEffect } = React; //import React's hooks
 const { useParams, useHistory, Link } = window.ReactRouterDOM; //import playerParams to parse params from URL

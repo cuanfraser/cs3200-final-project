@@ -1,5 +1,6 @@
 import teamService from "./teams-service" //import team-service so we can fetch single team
-import playerService from "../players/player-service"
+import TeamsPlayerList from "./teams-player-list"
+import TeamsGameList from "./teams-game-list"
 
 const { useState, useEffect } = React; //import React's hooks
 const { useParams, useHistory } = window.ReactRouterDOM; //import teamParams to parse params from URL
@@ -11,8 +12,6 @@ const TeamFormEditor = () => {
     useEffect(() => { //on load
         if (id !== "new") { //oinly load team by ID if ID is not new
             findTeamById(id)
-            //findAllPlayers()
-            //findGamesForTeam(id)
         }
     }, []);
 
@@ -31,9 +30,6 @@ const TeamFormEditor = () => {
     const updateTeam = (id, newTeam) =>
         teamService.updateTeam(id, newTeam) //update team ID with new team data, send to server
             .then(() => history.goBack())
-
-    //const findAllPlayers = () => playerService.findAllPlayers().then(players => setPlayers(players))
-    //const findGamesForTeam = (tid) => gameService.findGamesForTeam(tid).then(games => setGames(games))
 
     const history = useHistory()
 
@@ -65,6 +61,12 @@ const TeamFormEditor = () => {
                 <option name="EAST">EAST</option>
                 <option name="WEST">WEST</option>
             </select>
+            <br />
+
+
+            <TeamsGameList id={id}/>
+            <TeamsPlayerList id={id}/>
+
             <br />
 
 
