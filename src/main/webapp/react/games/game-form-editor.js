@@ -15,7 +15,6 @@ const GameFormEditor = () => {
             findGameById(id) //find game by id
         }
         else {
-            console.log("TEST")
             findAllTeams()
         }
     }, []);

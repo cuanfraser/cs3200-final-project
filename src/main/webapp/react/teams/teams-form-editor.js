@@ -1,12 +1,18 @@
 import teamService from "./teams-service" //import team-service so we can fetch single team
+import playerService from "../players/player-service"
+
 const { useState, useEffect } = React; //import React's hooks
 const { useParams, useHistory } = window.ReactRouterDOM; //import teamParams to parse params from URL
 const TeamFormEditor = () => {
     const { id } = useParams() //parse id from url
     const [team, setTeam] = useState({})
+    const [players, setPlayers] = useState([])
+    const [games, setGames] = useState([])
     useEffect(() => { //on load
         if (id !== "new") { //oinly load team by ID if ID is not new
-            findTeamById(id) //find Team by id
+            findTeamById(id)
+            //findAllPlayers()
+            //findGamesForTeam(id)
         }
     }, []);
 
@@ -26,6 +32,9 @@ const TeamFormEditor = () => {
         teamService.updateTeam(id, newTeam) //update team ID with new team data, send to server
             .then(() => history.goBack())
 
+    //const findAllPlayers = () => playerService.findAllPlayers().then(players => setPlayers(players))
+    //const findGamesForTeam = (tid) => gameService.findGamesForTeam(tid).then(games => setGames(games))
+
     const history = useHistory()
 
     return (
@@ -36,27 +45,27 @@ const TeamFormEditor = () => {
             <label>Name</label>
             <input className="form-control"
                 onChange={(e) =>
-                    setTeam(team => //update local team objects first name
+                    setTeam(team => 
                         ({ ...team, name: e.target.value }))}
                 value={team.name} />
             <label>City</label>
             <input className="form-control"
                 onChange={(e) =>
-                    setTeam(team => //update local team objects last name as team types
+                    setTeam(team =>
                         ({ ...team, city: e.target.value }))}
 
                 value={team.city} />
             <label>Conference</label>
-            <select className="form-control"
+            <select className="form-control" defaultValue="EAST"
                 onChange={(e) =>
-                    setTeam(team => //update local team objects teamname as team types input
+                    setTeam(team =>
                         ({ ...team, conference: e.target.value }))}
                 value={team.conference}>
 
                 <option name="EAST">EAST</option>
                 <option name="WEST">WEST</option>
             </select>
-
+            <br />
 
 
             { (id !== "new") ?

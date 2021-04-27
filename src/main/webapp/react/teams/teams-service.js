@@ -1,5 +1,5 @@
 // TODO: declare URL where server listens for HTTP requests
-const TEAMS_URL = "http://localhost:8080/api/teams" //need to update this link
+const TEAMS_URL = "http://localhost:8080/api/teams"
 
 export const findAllTeams = () => fetch(TEAMS_URL).then(response => response.json())
 

@@ -1,5 +1,6 @@
 // declare URL where server listens for HTTP requests
 const GAME_URL = "http://localhost:8080/api/games"
+const TEAMS_URL = "http://localhost:8080/api/teams"
 
 export const findAllGames = () => fetch(GAME_URL).then(response => response.json())
 
@@ -7,6 +8,11 @@ export const findAllGames = () => fetch(GAME_URL).then(response => response.json
 export const findGameById = (id) => {
   return  fetch(`${GAME_URL}/${id}`) //encode Game ID at end of path
   .then(response => response.json())
+}
+
+export const findGamesForTeam = (tid) => {
+  return fetch(`${TEAMS_URL}/${tid}/games`)
+    .then(response => response.json())
 }
 
 // delete a Game by their ID
@@ -40,6 +46,7 @@ export const updateGame = (id, game) =>
 
 // TODO: export all functions as the API to this service
 export default{
+  findGamesForTeam,
   findAllGames,
   findGameById,
   deleteGame,
