@@ -86,13 +86,13 @@ const PlayerFormEditor = () => {
                 value={player.dob} />
             <label>Team: </label>
             {(id === "new" ?
-                <select defaultValue={teams[0]} className="form-control"
+                <select defaultValue={1} className="form-control"
                     onChange={(e) => setNewTeam(e.target.value)}
                     value={newTeam}>
                     {teams.map(team => <option key={team.id} value={team.id}>{team.name}</option>)}
                 </select>
                 :
-                Object.keys(player).length > 0 ? 
+                (Object.keys(player).length > 0 && player.team !== null)? 
                     <Link to={`/teams/${player.team.id}`} className="btn btn-primary">{player.team.name}</Link>
                     :
                     <input className="form-control" value="No Team" disabled />

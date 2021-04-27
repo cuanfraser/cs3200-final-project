@@ -16,6 +16,9 @@ const TeamsPlayerList = (props) => {
         return (
             <div>
                 <h4>Players</h4>
+                <button className="btn btn-outline-primary btn-sm" onClick={() => history.push("/players/new")}>
+                    Add Player
+                </button>
 
                 <ul className="list-group">
                     {
